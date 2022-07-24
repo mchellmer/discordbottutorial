@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
 
 const TOKEN = process.env.CLIENT_TOKEN
 
@@ -12,17 +12,33 @@ const client = new Client({
     ]
 })
 
-//On successful login do something, 'ready'
-client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`)
-})
+let bot = {
+    client,
+    prefix: "n.",
+    owners: ["658560411800698892#8345"]
+}
 
-//Trigger on message send
-client.on("messageCreate", (message) => {
-    console.log(`Message content ${message.content}`)
-    if (message.content == "hi") {
-        message.reply("Hello World!!!!!")
-    }
-})
+//Map key values of commands and events in bot
+client.commands = new Collection()
+client.events = new Collection()
+
+client.loadEvents = (bot, reload) => require("./handlers/events")(bot, reload)
+
+client.loadEvents(bot, false)
+
+module.exports = bot
+
+// //On successful login do something, 'ready'
+// client.on("ready", () => {
+//     console.log(`Logged in as ${client.user.tag}`)
+// })
+
+// //Trigger on message send
+// client.on("messageCreate", (message) => {
+//     console.log(`Message content ${message.content}`)
+//     if (message.content == "hi") {
+//         message.reply("Hello World!!!!!")
+//     }
+// })
 
 client.login(TOKEN)
