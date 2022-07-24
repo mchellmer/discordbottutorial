@@ -1,8 +1,6 @@
 require('dotenv').config()
 const { Client, GatewayIntentBits, Collection } = require('discord.js');
 
-const TOKEN = process.env.CLIENT_TOKEN
-
 // Setup client to look for servers and messages 'guilds'
 const client = new Client({
     intents: [
@@ -23,8 +21,10 @@ client.commands = new Collection()
 client.events = new Collection()
 
 client.loadEvents = (bot, reload) => require("./handlers/events")(bot, reload)
+client.loadCommands = (bot, reload) => require("./handlers/commands")(bot, reload)
 
 client.loadEvents(bot, false)
+client.loadCommands(bot, false)
 
 module.exports = bot
 
@@ -41,4 +41,4 @@ module.exports = bot
 //     }
 // })
 
-client.login(TOKEN)
+client.login(process.env.CLIENT_TOKEN)

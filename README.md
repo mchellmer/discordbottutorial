@@ -18,3 +18,9 @@
 4. Code index.js
 - basic function to log something on succsessful integration with server
 - add basic command to respond to hi, ensure bot is configured for message content
+
+5. Add events, handlers, util functions
+- create more complex app structure for efficiency
+- /events: .js files with event actions e.g. ready
+- /handlers: .js files to manage shared tasks e.g. events
+- /util: .js files to do basic tasks e.g. functions
