@@ -1,18 +1,20 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 
-const TOKEN = process.env.GUILD_ID
+const TOKEN = process.env.CLIENT_TOKEN
 
-//Setup client to look for servers and messages 'guilds'
-const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages
-    ]
-})
+console.log(`Token ${TOKEN}`)
 
-//On successful login do something
-client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`)
-})
+// //Setup client to look for servers and messages 'guilds'
+// const client = new Client({
+//     intents: [
+//         GatewayIntentBits.Guilds,
+//         GatewayIntentBits.GuildMessages
+//     ]
+// })
 
-client.login(TOKEN)
+// //On successful login do something
+// client.on("ready", () => {
+//     console.log(`Logged in as ${client.user.tag}`)
+// })
+
+// client.login(TOKEN)
