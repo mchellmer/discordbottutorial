@@ -11,9 +11,16 @@ const client = new Client({
     ]
 })
 
-//On successful login do something
+//On successful login do something, 'ready'
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`)
+})
+
+//Trigger on message send
+client.on("messageCreate", (message) => {
+    if (message.content == "hi") {
+        message.reply("Hello World!!!!!")
+    }
 })
 
 client.login(TOKEN)
