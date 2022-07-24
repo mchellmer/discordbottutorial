@@ -3,11 +3,12 @@ const { Client, GatewayIntentBits } = require('discord.js');
 
 const TOKEN = process.env.CLIENT_TOKEN
 
-//Setup client to look for servers and messages 'guilds'
+// Setup client to look for servers and messages 'guilds'
 const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent
     ]
 })
 
@@ -18,6 +19,7 @@ client.on("ready", () => {
 
 //Trigger on message send
 client.on("messageCreate", (message) => {
+    console.log(`Message content ${message.content}`)
     if (message.content == "hi") {
         message.reply("Hello World!!!!!")
     }

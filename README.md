@@ -13,6 +13,8 @@
 - create app in discord
 - add bot to app
 - take token and add to .env
+  - npm install dotenv
 
 4. Code index.js
-- basic function to log something on succsesful integration with server
+- basic function to log something on succsessful integration with server
+- add basic command to respond to hi, ensure bot is configured for message content
