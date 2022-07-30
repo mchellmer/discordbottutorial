@@ -1,6 +1,6 @@
 const { getFiles } = require("../util/functions")
 
-// Grab bot and bool if it has been loaded or not
+// Load events .js files from folder and initialise them on running the bot
 module.exports = (bot, reload) => {
     const {client} = bot
 
@@ -24,6 +24,7 @@ module.exports = (bot, reload) => {
         initEvents(bot)
 }
 
+// Run some event loaded in bot
 function triggerEventHandler(bot, event, ...args){
     const {client} = bot
 
@@ -39,7 +40,7 @@ function triggerEventHandler(bot, event, ...args){
     }
 }
 
-
+// When initialising bot load some events
 function initEvents(bot) {
     const {client} = bot
 

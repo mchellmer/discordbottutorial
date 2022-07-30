@@ -1,8 +1,7 @@
 const { getFiles } = require("../util/functions")
 const fs = require("fs")
-// const bot = require("..")
 
-
+// Load commands from folder and set in bot
 module.exports = (bot, reload) => {
     const {client} = bot
 

@@ -1,3 +1,4 @@
+// When bot logs in do some action
 module.exports = {
     name: "ready",
     run: async (bot) => {
